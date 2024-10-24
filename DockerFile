@@ -1,0 +1,10 @@
+# Use the official Eclipse Mosquitto image
+FROM eclipse-mosquitto:latest
+
+# Expose the default MQTT port and WebSocket port
+EXPOSE 1883 9001
+
+# Optional: Add custom Mosquitto configuration
+COPY mosquitto.conf /mosquitto/config/mosquitto.conf
+
+CMD ["mosquitto", "-c", "/mosquitto/config/mosquitto.conf"]
